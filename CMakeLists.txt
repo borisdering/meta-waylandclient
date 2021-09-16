@@ -21,6 +21,8 @@ endfunction()
 
 include_directories(WAYLAND_CLIENT_INCLUDE_DIR)
 
-add_executable(${PROJECT_NAME} connect.c)
+add_executable(connect connect.c)
+target_link_libraries(connect PUBLIC ${WAYLAND_CLIENT_LIBRARIES})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${WAYLAND_CLIENT_LIBRARIES})
+add_executable(surface surface.c)
+target_link_libraries(surface PUBLIC ${WAYLAND_CLIENT_LIBRARIES})
